@@ -31,11 +31,13 @@ while to_continue:
         snake.extend()
         scoreboard.increment_scoreboard()
     if snake.snake_list[0].xcor() < -290 or snake.snake_list[0].xcor() > 290 or snake.snake_list[0].ycor() < -290 or snake.snake_list[0].ycor() > 290:
+        scoreboard.leader_board()
         scoreboard.game_over()
         to_continue = False
     for block in snake.snake_list[1::]:
         if snake.snake_list[0].distance(block) < 10:
             to_continue = False
+            scoreboard.leader_board()
             scoreboard.game_over()        
 
 screen.exitonclick()
